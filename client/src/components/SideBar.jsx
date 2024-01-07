@@ -1,11 +1,11 @@
 import SiderBarContent from './SiderBarContent';
-import { Drawer, styled } from '@mui/material';
+import { Drawer} from '@mui/material';
 
-const SideBar = () => {
+const SideBar = ({openDrawer}) => {
     return (
         <Drawer anchor='left'
             open={true}
-            hideBackdrop={true}
+            hideBackdrop={openDrawer}
             ModalProps={{
                 keepMounted: true
             }}

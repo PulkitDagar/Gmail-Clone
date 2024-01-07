@@ -6,8 +6,8 @@ import { gmailLogo } from '../constants/constant';
 
 const StyledAppBar = styled(AppBar)({
   background : "#F5F5F5",
-  boxShadow: none
-})
+  boxShadow: 'none'
+});
 
 const SearchWrapper = styled(Box)({
   background: '#EAF1FB',
@@ -36,13 +36,13 @@ const OptionWrapper = styled(Box)({
   }
 });
 
-const Header = () => {
+const Header = ({toggleDrawer}) => {
   
   return (
-    <styledAppBar position="static">
+    <StyledAppBar position="static">
 
       <Toolbar>
-        <MenuIcon color="action"/>
+        <MenuIcon color="action" onClick={toggleDrawer}/>
         <img src={gmailLogo} alt="Please check your Url" style={{width: 110, marginLeft: 15}} />
 
         <SearchWrapper>
@@ -59,7 +59,7 @@ const Header = () => {
           <AccountCircleOutlined color='action'/>
         </OptionWrapper >
       </Toolbar>
-    </styledAppBar>
+    </StyledAppBar>
   )
 }
 
