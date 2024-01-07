@@ -1,6 +1,7 @@
 import React from 'react'
 import {AppBar, Toolbar, styled, InputBase, Box} from '@mui/material';
-import {Menu as MenuIcon, Search, Tune} from '@mui/icons-material'
+import {Menu as MenuIcon, Search, Tune,HelpOutlineOutlined, SettingsOutlined, AppsOutlined,
+  AccountCircleOutlined} from '@mui/icons-material'
 import { gmailLogo } from '../constants/constant';
 
 const StyledAppBar = styled(AppBar)({
@@ -23,7 +24,17 @@ const SearchWrapper = styled(Box)({
     width : '100%',
     padding:'0 10px'
   }
-})
+});
+
+
+const OptionWrapper = styled(Box)({
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'end',
+  '& > svg' : {
+    marginLeft: '20px'
+  }
+});
 
 const Header = () => {
   
@@ -40,6 +51,13 @@ const Header = () => {
           <InputBase placeholder='Search mail'/>
           <Tune color='action'/>
         </SearchWrapper>
+
+        <OptionWrapper >
+          <HelpOutlineOutlined color='action'/>
+          <SettingsOutlined color='action'/>
+          <AppsOutlined color='action'/>
+          <AccountCircleOutlined color='action'/>
+        </OptionWrapper >
       </Toolbar>
     </styledAppBar>
   )
