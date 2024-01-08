@@ -1,6 +1,6 @@
 import React from 'react'
-import { Dialog , Box, Typography, styled, InputBase, TextField} from '@mui/material'
-import { Close } from '@mui/icons-material'
+import { Dialog , Box, Typography, styled, InputBase, TextField, Button} from '@mui/material'
+import { Close, DeleteOutline } from '@mui/icons-material'
 
 const dialogStyle = {
     height : '90%',
@@ -49,7 +49,16 @@ const ComposeMail = () => {
             <InputBase placeholder='Subject'/>
         </RecipientsWrapper >
 
-        <TextField/>
+        <TextField
+            multiline
+            rows={20}
+            sx={{ '& .MuiOutlinedInput-notchedOutline' : {border: 'none'}}}
+        />
+        <Box>
+            <Button></Button>
+            <DeleteOutline/>
+        </Box>
+
     </Dialog>
   )
 }
