@@ -1,6 +1,7 @@
 import { Box, Button, styled, List, ListItem} from '@mui/material'
 import {CreateOutlined} from '@mui/icons-material';
 import SIDEBAR_DATA from '../config/sidebar.config';
+import ComposeMail from './ComposeMail';
 import React from 'react'
 
 const ComposedButton = styled(Button)({
@@ -41,6 +42,7 @@ const SiderBarContent = () => {
                     ))
                 }
             </List>
+            <ComposeMail/>
             
             
         </Container>
