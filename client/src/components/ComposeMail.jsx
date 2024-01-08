@@ -1,9 +1,9 @@
 import React from 'react'
-import { Dialog , Box, Typography, styled, InputBase, TextField, Button} from '@mui/material'
+import { Dialog, Box, Typography, styled, InputBase, TextField, Button } from '@mui/material'
 import { Close, DeleteOutline } from '@mui/icons-material'
 
 const dialogStyle = {
-    height : '90%',
+    height: '90%',
     width: '80%',
     maxWidth: '100%',
     maxHeight: '100%',
@@ -26,41 +26,66 @@ const RecipientsWrapper = styled(Box)({
     display: 'flex',
     flexDirection: 'column',
     padding: '0 15px',
-    '& > div' : {
+    '& > div': {
         fontSize: 14,
         borderBottom: '1px solid #F5F5F5',
         marginTop: 10
     }
+});
+
+const Footer = styled(Box)({
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '10px 15px',
+    alignItems: 'center'
+});
+
+const SendButton = styled(Button)({
+    background: '#0B57D0',
+    color: '#fff',
+    fontWeight: 500,
+    textTransform: 'none',
+    borderRadius: 18,
+    width: 100
 })
 
-const ComposeMail = () => {
-  return (
-    <Dialog
-        open={true}
-        PaperProps={{sx: dialogStyle}}
-    >
-        <Header>
-            <Typography>New Message</Typography>
-            <Close fontSize='small'/>
-        </Header>
+const ComposeMail = ({ openDialog, setOpenDialog }) => {
 
-        <RecipientsWrapper >
-            <InputBase placeholder='Recipients'/>
-            <InputBase placeholder='Subject'/>
-        </RecipientsWrapper >
+    const closeComposeMail = (e) => {
+        e.preventDefault();
+        setOpenDialog(false);
+    }
 
-        <TextField
-            multiline
-            rows={20}
-            sx={{ '& .MuiOutlinedInput-notchedOutline' : {border: 'none'}}}
-        />
-        <Box>
-            <Button></Button>
-            <DeleteOutline/>
-        </Box>
+    const sendMail = () => {
+        setOpenDialog(false);
+    }
+    return (
+        <Dialog
+            open={openDialog}
+            PaperProps={{ sx: dialogStyle }}
+        >
+            <Header>
+                <Typography>New Message</Typography>
+                <Close fontSize='small' onClick={(e) => closeComposeMail()} />
+            </Header>
 
-    </Dialog>
-  )
+            <RecipientsWrapper >
+                <InputBase placeholder='Recipients' />
+                <InputBase placeholder='Subject' />
+            </RecipientsWrapper >
+
+            <TextField
+                multiline
+                rows={20}
+                sx={{ '& .MuiOutlinedInput-notchedOutline': { border: 'none' } }}
+            />
+            <Footer>
+                <SendButton onClick={() => sendMail()}> Send </SendButton>
+                <DeleteOutline onClick= {()=> setOpenDialog(false)}/>
+            </Footer>
+
+        </Dialog>
+    )
 }
 
 export default ComposeMail
