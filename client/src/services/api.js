@@ -1,11 +1,11 @@
 import axios from 'axios';
 
 const API_URL = 'https://localhost:8000';
-const API_GMAIL = async()=> {
+const API_GMAIL = async(urlObject, payload)=> {
     return  await axios({
-        method: 'delete',
-        url: `${API_URL}/endpoint`,
-        data: {}
+        method: urlObject.method,
+        url: `${API_URL}/${urlObject.endpoint}`,
+        data: payload
     })
 }
 

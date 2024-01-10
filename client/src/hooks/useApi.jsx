@@ -1,7 +1,7 @@
 import API from '../services/api'
 import { useState } from 'react';
 
-const useApi = ()=> {
+const useApi = (urlObject)=> {
 
     const [respone, setResponse] = useState(null);
     const [error, setError] = useState("");
@@ -9,12 +9,12 @@ const useApi = ()=> {
 
 
 
-    const call = async () =>{
+    const call = async (payload) =>{
         setResponse(null);
         setError("");
         setIsLoading(true);
         try{
-            let res = await API();
+            let res = await API(urlObject,payload);
             setResponse(res.data);
         } catch(error){
             setError(error.message);
