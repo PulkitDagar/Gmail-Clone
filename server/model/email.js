@@ -36,6 +36,6 @@ const EmailSchema = new mongoose.Schema({
     }
 })
 
-const email = mongoose.Model('emails', EmailSchema);
+const email = mongoose.model('emails', EmailSchema);
 export default email;
     
