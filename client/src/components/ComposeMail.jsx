@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { Dialog, Box, Typography, styled, InputBase, TextField, Button } from '@mui/material'
 import { Close, DeleteOutline } from '@mui/icons-material'
+import useApi from '../hooks/useApi'
 
 const dialogStyle = {
     height: '90%',
@@ -53,6 +54,7 @@ const SendButton = styled(Button)({
 const ComposeMail = ({ openDialog, setOpenDialog }) => {
 
     const [data,setData] = useState({});
+    const sentEmailService = useApi();
 
     const config = {
         Host: "smtp.elasticemail.com",
