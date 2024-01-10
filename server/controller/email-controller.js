@@ -1,5 +1,9 @@
+import Email from "../model/email.js";
 
+export const saveSentEmails = (request,response) => {
+    try{
 
-export const saveSentEmails = () => {
-
+    } catch(error){
+        response.status(500).json(error.message);
+    }
 }
